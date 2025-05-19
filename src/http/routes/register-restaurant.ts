@@ -1,4 +1,5 @@
 import Elysia, { t } from 'elysia'
+
 import { db } from '../../db/connection'
 import { restaurants, users } from '../../db/schema'
 

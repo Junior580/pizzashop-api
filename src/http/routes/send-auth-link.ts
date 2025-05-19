@@ -1,12 +1,13 @@
-import Elysia, { t } from 'elysia'
-import { db } from '../../db/connection'
 import { createId } from '@paralleldrive/cuid2'
+import Elysia, { t } from 'elysia'
+
+import { db } from '../../db/connection'
 import { authLinks } from '../../db/schema'
 import { env } from '../../env'
 
 export const sendAuthLink = new Elysia().post(
   '/authenticate',
-  async ({ body, set }) => {
+  async ({ body }) => {
     const { email } = body
 
     const userFromEmail = await db.query.users.findFirst({
