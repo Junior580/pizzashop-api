@@ -28,8 +28,11 @@
     "dayjs": "^1.11.13",
     "drizzle-orm": "^0.40.0",
     "elysia": "^1.2.25",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-prettier": "^5.4.1",
     "pg": "^8.14.0",
     "postgres": "^3.4.5",
+    "prettier": "^3.5.3",
     "zod": "^3.24.2"
   }
 }
