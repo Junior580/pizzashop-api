@@ -15,8 +15,17 @@ export const auth = new Elysia()
       schema: jwtPayloadSchema,
     }),
   )
-  .derive({ as: 'scoped' }, ({ jwt: { sign }, cookie: { auth } }) => {
+  .derive({ as: 'scoped' }, ({ jwt: { verify, sign }, cookie: { auth } }) => {
     return {
+      getCurrentUser: async () => {
+        const payload = await verify(auth.value)
+
+        if (!payload) {
+          throw new Error()
+        }
+
+        return payload
+      },
       signUser: async (payload: Static<typeof jwtPayloadSchema>) => {
         const token = await sign(payload)
 
